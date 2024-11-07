@@ -19,6 +19,11 @@ mongoose.connect(process.env.MONGO_URI)
 const expenseRoutes = require('./routes/expenses');
 const authRoutes = require('./routes/auth');
 
+// Add a default route for /
+app.get('/', (req, res) => {
+    res.send('Backend is running');
+  });
+  
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/auth', authRoutes);
 
